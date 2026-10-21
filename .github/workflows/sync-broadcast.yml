@@ -1,0 +1,35 @@
+
+name: Sync Broadcast YouTube
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sync public channel videos
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YOUTUBE_HANDLE: '@goransoyoungbae'
+        run: python scripts/sync_youtube.py
+
+      - name: Commit video catalog if changed
+        run: |
+          git add broadcast.csv
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Update broadcast video catalog'
+            git push
+          fi
