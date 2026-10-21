@@ -177,36 +177,42 @@ body {
       font-size: 11px;
     }
 
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
+  
+.links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
 
-    .link-card {
-      display: block;
-      padding: 17px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      transition: background 0.2s, border-color 0.2s;
-    }
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
 
-    .link-card:hover {
-      background: var(--sky-light);
-      border-color: var(--sky);
-    }
+.link-card:hover {
+  background: transparent;
+  border-color: transparent;
+  color: var(--blue);
+}
 
-    .link-icon {
-      display: block;
-      color: var(--blue);
-      font-size: 19px;
-      margin-bottom: 10px;
-    }
+.link-icon {
+  display: inline-block;
+  color: var(--blue);
+  font-size: 13px;
+  margin-bottom: 0;
+}
 
     .link-name {
       display: block;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: bold;
     }
 
