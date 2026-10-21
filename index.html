@@ -4,194 +4,584 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Koyoungbae SSD — 고영배의 외장하드</title>
+  <title>Koyoungbae SSD | 고영배의 외장하드</title>
+  <meta name="description" content="고영배의 활동과 기록을 모으는 개인 아카이브">
+
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --white: #ffffff;
+      --sky-light: #eaf5fc;
+      --sky: #b8d9ef;
+      --blue: #649cc2;
+      --ink: #344c5d;
+      --muted: #8294a1;
+      --line: #e2ebf1;
+      --page: #f8fbfd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      background: #faf9f6;
-      color: #292923;
+      background: var(--page);
+      color: var(--ink);
       font-family: Arial, "Noto Sans KR", sans-serif;
+      line-height: 1.6;
     }
-    header, main, footer {
-      max-width: 960px;
-      margin: auto;
-      padding: 24px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
+
+    button {
+      font: inherit;
+    }
+
+    .page {
+      width: min(100% - 40px, 960px);
+      margin: 0 auto;
+    }
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #dedbd3;
+      padding: 30px 0 24px;
+      border-bottom: 1px solid var(--line);
     }
-    .logo { font-size: 21px; font-weight: 750; }
-    .sub { color: #858176; font-size: 11px; margin-top: 6px; }
-    .hero { padding: 72px 0 42px; }
-    .eyebrow {
-      font-size: 11px;
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 23px;
+      letter-spacing: -0.7px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 10px;
       letter-spacing: 2px;
-      color: #8b8273;
+      margin-top: 4px;
     }
-    h1 { font-size: clamp(34px, 7vw, 58px); margin: 16px 0; }
-    .intro { color: #706e65; line-height: 1.8; }
-    .search {
-      display: flex;
-      gap: 10px;
-      margin: 28px 0 36px;
-    }
-    input {
-      width: 100%;
-      padding: 15px;
-      border: 1px solid #dedbd3;
-      border-radius: 8px;
-      background: white;
-      font-size: 14px;
-    }
-    button {
-      padding: 14px 18px;
-      border: 0;
-      border-radius: 8px;
-      background: #292923;
-      color: white;
-      cursor: pointer;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .card {
-      display: block;
-      padding: 24px;
-      min-height: 155px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: inherit;
-      transition: transform .2s;
-    }
-    .card:hover { transform: translateY(-3px); }
-    .card:nth-child(1) { background: #eae8e0; }
-    .card:nth-child(2) { background: #f0e9e2; }
-    .card:nth-child(3) { background: #e5ebe7; }
-    .card:nth-child(4) { background: #e9e5ef; }
-    .symbol { font-size: 24px; }
-    h2 { font-size: 19px; margin: 20px 0 8px; }
-    .card p { color: #65645d; font-size: 13px; margin: 0; }
-    .section-title { margin: 48px 0 18px; font-size: 16px; }
-    .notice {
-      padding: 20px;
-      border: 1px solid #dedbd3;
-      border-radius: 10px;
-      color: #77756e;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-    footer {
-      margin-top: 60px;
-      border-top: 1px solid #dedbd3;
-      color: #858176;
+
+    .header-label {
+      color: var(--blue);
+      background: var(--sky-light);
+      border-radius: 30px;
+      padding: 7px 12px;
       font-size: 11px;
-      text-align: center;
       letter-spacing: 1px;
     }
-    @media (max-width: 520px) {
-      header, main, footer { padding: 18px; }
-      .hero { padding-top: 48px; }
-      .grid { gap: 10px; }
-      .card { padding: 17px; min-height: 145px; }
-      .search { flex-direction: column; }
-      .search button { width: 100%; }
+
+    .intro {
+      padding: 58px 0 38px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      font-weight: normal;
+    }
+
+    .intro p {
+      margin: 0;
+      color: #728593;
+      font-size: 14px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      color: var(--blue);
+      letter-spacing: 1.6px;
+      font-weight: bold;
+      margin: 0 0 12px;
+    }
+
+    .info-title {
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: 23px;
+      margin: 0 0 8px;
+      font-weight: normal;
+    }
+
+    .info-description {
+      color: #728593;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .details {
+      border-left: 1px solid var(--line);
+      padding-left: 24px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0f4f7;
+      font-size: 12px;
+    }
+
+    .detail-row span:first-child {
+      color: var(--muted);
+    }
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: 20px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .link-card {
+      display: block;
+      padding: 17px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .link-card:hover {
+      background: var(--sky-light);
+      border-color: var(--sky);
+    }
+
+    .link-icon {
+      display: block;
+      color: var(--blue);
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .link-name {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .link-caption {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 3px;
+    }
+
+    .calendar-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .calendar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .month-title {
+      font-family: Georgia, serif;
+      font-size: 23px;
+    }
+
+    .calendar-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .calendar-buttons button {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .calendar-buttons button:hover {
+      background: var(--sky-light);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 5px;
+      text-align: center;
+    }
+
+    .weekday {
+      color: var(--muted);
+      font-size: 11px;
+      padding: 8px 0;
+    }
+
+    .day {
+      min-height: 42px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 9px;
+      font-size: 12px;
+      color: var(--ink);
+    }
+
+    .day.today {
+      background: var(--sky-light);
+      color: #356b91;
+      font-weight: bold;
+      outline: 1px solid var(--sky);
+    }
+
+    .day.empty {
+      color: transparent;
+    }
+
+    .calendar-note {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .bottom-nav {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin: 34px 0 0;
+      padding: 18px 0 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .nav-item {
+      text-align: center;
+      padding: 13px 4px;
+      border-radius: 10px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    .nav-item:hover {
+      background: var(--sky-light);
+      border-color: var(--sky);
+    }
+
+    .nav-symbol {
+      display: block;
+      color: var(--blue);
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 4px 0 28px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        width: min(100% - 28px, 960px);
+      }
+
+      header {
+        padding-top: 22px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .header-label {
+        font-size: 9px;
+        padding: 6px 8px;
+      }
+
+      .intro {
+        padding: 42px 0 28px;
+      }
+
+      .info-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .details {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding: 14px 0 0;
+      }
+
+      .links-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .calendar-card {
+        padding: 14px;
+      }
+
+      .day {
+        min-height: 36px;
+      }
+
+      .bottom-nav {
+        gap: 5px;
+      }
+
+      .nav-item {
+        font-size: 11px;
+        padding: 12px 2px;
+      }
+
+      .nav-symbol {
+        font-size: 17px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div>
-      <div class="logo">Koyoungbae SSD</div>
-      <div class="sub">고영배의 외장하드</div>
-    </div>
-    <div aria-label="Archive">✳ ARCHIVE</div>
-  </header>
+  <div class="page">
+    <header>
+      <div>
+        <div class="logo">Koyoungbae SSD</div>
+        <div class="subtitle">A PERSONAL ARCHIVE</div>
+      </div>
+      <div class="header-label">GO YOUNGBAE</div>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="eyebrow">ARTIST ARCHIVE · EST. 2026</div>
-      <h1>GO YOUNGBAE</h1>
-      <p class="intro">
-        Messages, moments, schedules & records.<br>
-        고영배에 관한 기록을 모으고 찾아보는 아카이브.
-      </p>
+    <main>
+      <section class="intro">
+        <div class="eyebrow">ARCHIVE No. 001</div>
+        <h1>GO YOUNGBAE</h1>
+        <p>고영배의 순간과 기록을 모으는 공간.</p>
+      </section>
 
-      <form class="search" id="searchForm">
-        <input id="searchInput" type="search"
-          placeholder="메시지, 일정, 게시물, 키워드 검색"
-          aria-label="아카이브 검색">
-        <button type="submit">검색</button>
-      </form>
-      <p id="searchMessage" aria-live="polite"></p>
-    </section>
+      <section class="info-card">
+        <div>
+          <div class="section-label">ABOUT</div>
+          <h2 class="info-title">고영배의 외장하드</h2>
+          <p class="info-description">
+            좋아하는 순간들을 기록하고<br>
+            오래 꺼내 볼 수 있도록 모아두는 곳.
+          </p>
+        </div>
 
-    <section class="grid" aria-label="아카이브 메뉴">
-      <a class="card" href="#messages">
-        <div class="symbol">☏</div>
-        <h2>Messages</h2>
-        <p>메시지 아카이브 · 대화 기록</p>
+        <div class="details">
+          <div class="detail-row">
+            <span>NAME</span>
+            <span>고영배</span>
+          </div>
+          <div class="detail-row">
+            <span>GROUP</span>
+            <span>소란 (SORAN)</span>
+          </div>
+          <div class="detail-row">
+            <span>TYPE</span>
+            <span>PERSONAL ARCHIVE</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Quick Links</h2>
+          <span class="small-note">LINKS & MORE</span>
+        </div>
+
+        <div class="links-grid">
+          <a class="link-card" href="#links">
+            <span class="link-icon">↗</span>
+            <span class="link-name">Instagram</span>
+            <span class="link-caption">Social media</span>
+          </a>
+          <a class="link-card" href="#links">
+            <span class="link-icon">▷</span>
+            <span class="link-name">YouTube</span>
+            <span class="link-caption">Videos</span>
+          </a>
+          <a class="link-card" href="#links">
+            <span class="link-icon">𝕏</span>
+            <span class="link-name">X</span>
+            <span class="link-caption">Updates</span>
+          </a>
+          <a class="link-card" href="#links">
+            <span class="link-icon">＋</span>
+            <span class="link-name">Official</span>
+            <span class="link-caption">Official links</span>
+          </a>
+        </div>
+        <p class="small-note">※ 실제 링크 주소는 나중에 연결할 거야.</p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Schedule</h2>
+          <span class="small-note">CALENDAR</span>
+        </div>
+
+        <div class="calendar-card">
+          <div class="calendar-top">
+            <div class="month-title" id="monthTitle">2026. 10</div>
+            <div class="calendar-buttons">
+              <button id="prevMonth" aria-label="이전 달">←</button>
+              <button id="nextMonth" aria-label="다음 달">→</button>
+            </div>
+          </div>
+
+          <div class="calendar-grid" id="calendar">
+            <div class="weekday">SUN</div>
+            <div class="weekday">MON</div>
+            <div class="weekday">TUE</div>
+            <div class="weekday">WED</div>
+            <div class="weekday">THU</div>
+            <div class="weekday">FRI</div>
+            <div class="weekday">SAT</div>
+          </div>
+
+          <p class="calendar-note">
+            일정이 들어갈 자리야. 실제 일정은 다음 단계에서 추가하자.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="아카이브 카테고리">
+      <a class="nav-item" href="#bubble">
+        <span class="nav-symbol">◌</span>버블
       </a>
-      <a class="card" href="#schedule">
-        <div class="symbol">▦</div>
-        <h2>Schedule</h2>
-        <p>일정 아카이브 · 날짜별 기록</p>
+      <a class="nav-item" href="#backup">
+        <span class="nav-symbol">▤</span>백업
       </a>
-      <a class="card" href="#social">
-        <div class="symbol">＠</div>
-        <h2>Social</h2>
-        <p>SNS 게시물 · 원문 링크</p>
+      <a class="nav-item" href="#info">
+        <span class="nav-symbol">ⓘ</span>정보
       </a>
-      <a class="card" href="#library">
-        <div class="symbol">▤</div>
-        <h2>Library</h2>
-        <p>기타 기록 · 자료실</p>
+      <a class="nav-item" href="#map">
+        <span class="nav-symbol">⌖</span>지도
       </a>
-    </section>
+      <a class="nav-item" href="#broadcast">
+        <span class="nav-symbol">▷</span>방송
+      </a>
+    </nav>
 
-    <h2 class="section-title">ABOUT THIS ARCHIVE</h2>
-    <div class="notice">
-      고영배의 활동과 관련된 기록을 정리하기 위한 비공식 팬 아카이브입니다.
-      현재는 사이트의 첫 화면을 구성하는 단계이며,
-      실제 기록과 검색 기능은 이후 연결할 예정입니다.
-    </div>
-
-    <section id="messages">
-      <h2 class="section-title">MESSAGES</h2>
-      <div class="notice">메시지 아카이브가 준비되면 이곳에서 확인할 수 있습니다.</div>
-    </section>
-    <section id="schedule">
-      <h2 class="section-title">SCHEDULE</h2>
-      <div class="notice">일정 아카이브가 준비되면 이곳에서 확인할 수 있습니다.</div>
-    </section>
-    <section id="social">
-      <h2 class="section-title">SOCIAL</h2>
-      <div class="notice">SNS 아카이브가 준비되면 이곳에서 확인할 수 있습니다.</div>
-    </section>
-    <section id="library">
-      <h2 class="section-title">LIBRARY</h2>
-      <div class="notice">자료실이 준비되면 이곳에서 확인할 수 있습니다.</div>
-    </section>
-  </main>
-
-  <footer>
-    UNOFFICIAL FAN-MADE ARCHIVE · KOYOUNGBAE SSD
-  </footer>
+    <footer>
+      KOYOUNGBAE SSD · MADE WITH CARE
+    </footer>
+  </div>
 
   <script>
-    document.getElementById("searchForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const keyword = document.getElementById("searchInput").value.trim();
-      const message = document.getElementById("searchMessage");
-      message.textContent = keyword
-        ? "아직 저장된 자료가 없어 검색할 수 없습니다. 자료 검색 기능은 다음 단계에서 연결할게요."
-        : "검색어를 입력해 주세요.";
+    const calendar = document.getElementById("calendar");
+    const monthTitle = document.getElementById("monthTitle");
+
+    let shownYear = 2026;
+    let shownMonth = 9; // 0 = January, 9 = October
+
+    function drawCalendar() {
+      calendar.querySelectorAll(".day").forEach(day => day.remove());
+
+      monthTitle.textContent =
+        shownYear + ". " + String(shownMonth + 1).padStart(2, "0");
+
+      const firstDay = new Date(shownYear, shownMonth, 1).getDay();
+      const daysInMonth = new Date(shownYear, shownMonth + 1, 0).getDate();
+
+      const now = new Date();
+      const isCurrentMonth =
+        now.getFullYear() === shownYear &&
+        now.getMonth() === shownMonth;
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement("div");
+        empty.className = "day empty";
+        empty.textContent = " ";
+        calendar.appendChild(empty);
+      }
+
+      for (let date = 1; date <= daysInMonth; date++) {
+        const day = document.createElement("div");
+        day.className = "day";
+        day.textContent = date;
+
+        if (isCurrentMonth && date === now.getDate()) {
+          day.classList.add("today");
+        }
+
+        calendar.appendChild(day);
+      }
+    }
+
+    document.getElementById("prevMonth").addEventListener("click", () => {
+      shownMonth--;
+      if (shownMonth < 0) {
+        shownMonth = 11;
+        shownYear--;
+      }
+      drawCalendar();
     });
+
+    document.getElementById("nextMonth").addEventListener("click", () => {
+      shownMonth++;
+      if (shownMonth > 11) {
+        shownMonth = 0;
+        shownYear++;
+      }
+      drawCalendar();
+    });
+
+    drawCalendar();
   </script>
 </body>
 </html>
