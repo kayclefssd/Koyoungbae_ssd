@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koyoungbae SSD — 고영배의 외장하드</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #faf9f6;
+      color: #292923;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+    }
+    header, main, footer {
+      max-width: 960px;
+      margin: auto;
+      padding: 24px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #dedbd3;
+    }
+    .logo { font-size: 21px; font-weight: 750; }
+    .sub { color: #858176; font-size: 11px; margin-top: 6px; }
+    .hero { padding: 72px 0 42px; }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #8b8273;
+    }
+    h1 { font-size: clamp(34px, 7vw, 58px); margin: 16px 0; }
+    .intro { color: #706e65; line-height: 1.8; }
+    .search {
+      display: flex;
+      gap: 10px;
+      margin: 28px 0 36px;
+    }
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #dedbd3;
+      border-radius: 8px;
+      background: white;
+      font-size: 14px;
+    }
+    button {
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 8px;
+      background: #292923;
+      color: white;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      display: block;
+      padding: 24px;
+      min-height: 155px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .2s;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card:nth-child(1) { background: #eae8e0; }
+    .card:nth-child(2) { background: #f0e9e2; }
+    .card:nth-child(3) { background: #e5ebe7; }
+    .card:nth-child(4) { background: #e9e5ef; }
+    .symbol { font-size: 24px; }
+    h2 { font-size: 19px; margin: 20px 0 8px; }
+    .card p { color: #65645d; font-size: 13px; margin: 0; }
+    .section-title { margin: 48px 0 18px; font-size: 16px; }
+    .notice {
+      padding: 20px;
+      border: 1px solid #dedbd3;
+      border-radius: 10px;
+      color: #77756e;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid #dedbd3;
+      color: #858176;
+      font-size: 11px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 520px) {
+      header, main, footer { padding: 18px; }
+      .hero { padding-top: 48px; }
+      .grid { gap: 10px; }
+      .card { padding: 17px; min-height: 145px; }
+      .search { flex-direction: column; }
+      .search button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="logo">Koyoungbae SSD</div>
+      <div class="sub">고영배의 외장하드</div>
+    </div>
+    <div aria-label="Archive">✳ ARCHIVE</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">ARTIST ARCHIVE · EST. 2026</div>
+      <h1>GO YOUNGBAE</h1>
+      <p class="intro">
+        Messages, moments, schedules & records.<br>
+        고영배에 관한 기록을 모으고 찾아보는 아카이브.
+      </p>
+
+      <form class="search" id="searchForm">
+        <input id="searchInput" type="search"
+          placeholder="메시지, 일정, 게시물, 키워드 검색"
+          aria-label="아카이브 검색">
+        <button type="submit">검색</button>
+      </form>
+      <p id="searchMessage" aria-live="polite"></p>
+    </section>
+
+    <section class="grid" aria-label="아카이브 메뉴">
+      <a class="card" href="#messages">
+        <div class="symbol">☏</div>
+        <h2>Messages</h2>
+        <p>메시지 아카이브 · 대화 기록</p>
+      </a>
+      <a class="card" href="#schedule">
+        <div class="symbol">▦</div>
+        <h2>Schedule</h2>
+        <p>일정 아카이브 · 날짜별 기록</p>
+      </a>
+      <a class="card" href="#social">
+        <div class="symbol">＠</div>
+        <h2>Social</h2>
+        <p>SNS 게시물 · 원문 링크</p>
+      </a>
+      <a class="card" href="#library">
+        <div class="symbol">▤</div>
+        <h2>Library</h2>
+        <p>기타 기록 · 자료실</p>
+      </a>
+    </section>
+
+    <h2 class="section-title">ABOUT THIS ARCHIVE</h2>
+    <div class="notice">
+      고영배의 활동과 관련된 기록을 정리하기 위한 비공식 팬 아카이브입니다.
+      현재는 사이트의 첫 화면을 구성하는 단계이며,
+      실제 기록과 검색 기능은 이후 연결할 예정입니다.
+    </div>
+
+    <section id="messages">
+      <h2 class="section-title">MESSAGES</h2>
+      <div class="notice">메시지 아카이브가 준비되면 이곳에서 확인할 수 있습니다.</div>
+    </section>
+    <section id="schedule">
+      <h2 class="section-title">SCHEDULE</h2>
+      <div class="notice">일정 아카이브가 준비되면 이곳에서 확인할 수 있습니다.</div>
+    </section>
+    <section id="social">
+      <h2 class="section-title">SOCIAL</h2>
+      <div class="notice">SNS 아카이브가 준비되면 이곳에서 확인할 수 있습니다.</div>
+    </section>
+    <section id="library">
+      <h2 class="section-title">LIBRARY</h2>
+      <div class="notice">자료실이 준비되면 이곳에서 확인할 수 있습니다.</div>
+    </section>
+  </main>
+
+  <footer>
+    UNOFFICIAL FAN-MADE ARCHIVE · KOYOUNGBAE SSD
+  </footer>
+
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const keyword = document.getElementById("searchInput").value.trim();
+      const message = document.getElementById("searchMessage");
+      message.textContent = keyword
+        ? "아직 저장된 자료가 없어 검색할 수 없습니다. 자료 검색 기능은 다음 단계에서 연결할게요."
+        : "검색어를 입력해 주세요.";
+    });
+  </script>
+</body>
+</html>
