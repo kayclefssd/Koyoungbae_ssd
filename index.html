@@ -458,6 +458,91 @@ object-position: center 25%;
   text-align: right;
 }
 
+/* QUICK LINKS - 겹침 수정 최종 디자인 */
+
+.links-grid {
+  display: grid !important;
+  grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin-top: 20px;
+  align-items: start;
+}
+
+.links-grid .link-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+.links-grid .link-icon {
+  display: flex !important;
+  flex: 0 0 38px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: #eaf4fa !important;
+  color: #527f9f !important;
+  font-size: 17px !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+}
+
+.links-grid .link-name {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #526475 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+}
+
+.links-grid .link-caption {
+  display: none !important;
+}
+
+.links-grid .link-card:hover .link-icon {
+  background: #527f9f !important;
+  color: white !important;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  .links-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 18px 8px !important;
+  }
+
+  .links-grid .link-icon {
+    width: 34px !important;
+    height: 34px !important;
+    flex-basis: 34px !important;
+    font-size: 15px !important;
+  }
+
+  .links-grid .link-name {
+    font-size: 10px !important;
+  }
+}
+
   </style>
 </head>
 
